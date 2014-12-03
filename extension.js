@@ -51,11 +51,11 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "basicBot",
+        botName: "BotDoKvalo",
         language: "english",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
-        maximumAfk: 120,
-        afkRemoval: true,
+        chatLink: "https://raw.githubusercontent.com/kvalocompata/IlhaPlug/master/settingsOverview.md",
+        maximumAfk: 150,
+        afkRemoval: false,
         maximumDc: 60,
         bouncerPlus: true,
         lockdownEnabled: false,
@@ -103,6 +103,6 @@
     }));
 
     //Start the bot and extend it when it has loaded.
-    $.getScript('https://rawgit.com/Yemasthui/basicBot/master/basicBot.js', extend);
+    $.getScript('https://rawgit.com/kvalocompata/IlhaPlug/master/basicBot.js', extend);
 
 }).call(this);
