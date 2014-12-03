@@ -1,136 +1,24 @@
-{
+basicBot-customization
+Click here for basicBot's main repository.
 
-    "nodatafound": "Não há dados anteriores encontrado.",
-    "retrievingdata": "Recuperando dados armazenados anteriormente.",
-    "datarestored": "Dados armazenados anteriormente recuperado com êxito.",
-    "greyuser": "Apenas seguranças e até pode executar um bot.",
-    "bouncer": "O bot não pode mover as pessoas quando ele é executado como um segurança.",
-    "online": "/me %%BOTNAME%% v%%VERSION%% online!",
+Using custom room settings or adding functionality is done by loading your own script loading and modifying the bot. This repository's purpose is to facilitate this. You can fork the repository and customise the example script. When you have forked the repo, bookmark the following script, but change Yemasthui to your own github handle.
 
+javascript:(function(){$.getScript('https://rawgit.com/Yemasthui/basicBot-customization/master/extension.js');})();
 
-    "welcome": "/me Bem vindo %%NAME%%",
-    "welcomeback": "/me Bem vindo de volta, %%NAME%%",
-    "songknown": "/me :repeat: Esta musica foi tocada %%PLAYS%% vezes na última %%TIMETOTAL%%, última vez foi %%LASTTIME%% antes. :repeat:",
-    "timelimit": "/me @%%NAME%%, sua música passa de %%MAXLENGTH%% minutos, se não tem permissão n bota musica longa poar",
-    "permissionownsong": "/me :up: @%%NAME%% tem permissão para tocar sua própria produção!",
-    "isblacklisted": "/me Você caiu na %%BLACKLIST%% blacklist do Hiago! proxima...",
+If you are using your own hosting service for your script, swap the link with your own.
 
+A detailed overview of the possible settings can be found here.
 
-    "isopen": "/me Roleta Poar! Escreva !join pra participar!",
-    "winnerpicked": "/me O macaco que ganhou foi! @%%NAME%% para posição %%POSITION%%.",
+(A custom .json file can still be used for custom file settings, but is discouraged as the method provided here allows for more customization.)
 
+Blacklists
 
-    "alreadyadding": "/me  Este macaco ja foi adicionado! Mudou a posição desejada para %%POSITION%%.",
-    "adding": "/me Adicionado @%%NAME%% na lista. Posição atual: %%POSITION%%.",
+Blacklists can be added in the settings through either links to raw json files with the same format as those in the examples provided (forking and using rawgit's development link is a great way to do this), or replacing the link with a custom function that loads your lists into the bot (this option requires extensive knowledge of javascript and a good understanding of the bot's inner workings).
 
+To update your lists manually, you can use the details specified in chat messages after a song is blacklisted, or use either of these in the console periodically:
 
-    "usernotfound": "/me Macaco não Encontrado.",
-    "notdisconnected": "/me @%%NAME%% não desligue durante o meu tempo aqui.",
-    "noposition": "/me No last position known. A lista de espera precisa atualizar pelo menos uma vez para registrar última posição de um usuário.",
-    "toolongago": "/me @%%NAME%%'s ultima disconecção (DC ou leave) foi muito tempo atrás: %%TIME%%.",
-    "valid": "/me @%%NAME%% disconectado %%TIME%% atrás e deverão estar em posição %%POSITION%%.",
+bot.getNewBlacklistedSongs(); //get a javascript object
+bot.logNewBlacklistedSongs(); //get a list
+Copyright
 
-
-    "warning1": "/me @%%NAME%%, vc esta away a %%TIME%%, faz algo util c n vai ser kikado.",
-    "warning2": "/me @%%NAME%%, vc vai ser kikado pq ta aw.",
-    "afkremove": "/me @%%NAME%%, vc caiu no ban do Hiago por %%TIME%%. Você estava na posição %%POSITION%%. Chat at least once every %%MAXIMUMAFK%% minutes if you want to play a song.",
-
-
-    "caps": "/me @%%NAME%%, PARA DE GRITAR COMIGO FDP, DESLIGA O CAPS.",
-    "askskip": "/me @%%NAME%%, Não pede pra pular fdp.",
-    "spam": "/me @%%NAME%%, enfia esse spam... em um lugar seguro.",
-    "roomadvertising": "/me @%%NAME%%, Sem links de outras rooms plz.",
-    "adfly": "/me @%%NAME%%, Troca esse autowoot ae. sugerido PlugCubed: http://plugcubed.net/",
-
-
-    "invalidtime": "/me [@%%NAME%%] Tempo especificado inválido.",
-    "nouserspecified": "/me [@%%NAME%%] Nenhum macaco especificado.",
-    "invaliduserspecified": "/me [@%%NAME%%] Macaco invalido.",
-    "nolistspecified": "/me [@%%NAME%%] Lista não especificada.",
-    "invalidlistspecified": "/me [@%%NAME%%] Lista inválida especificada.",
-    "novaliduserspecified": "/me [@%%NAME%%] Nenhum macaco válido especificado.",
-    "nolimitspecified": "/me [@%%NAME%%] Não há limite especificado.",
-    "invalidlimitspecified": "/me [@%%NAME%%] Limite inválido.",
-    "invalidpositionspecified": "/me [@%%NAME%%] Posição inválida.",
-    "toggleon": "/me [@%%NAME%%] %%FUNCTION%% habilitado.",
-    "toggleoff": "/me [@%%NAME%%] %%FUNCTION%% disabilitado.",
-    "afkremoval": "AFK removal",
-    "afksremoved": "AFK's removed",
-    "afklimit": "AFK limit",
-    "autoskip": "autoskip",
-    "newblacklisted": "/me [@%%NAME%%] Esta musica ta na blacklist %%BLACKLIST%% blacklist! [ %%AUTHOR%% - %%TITLE%% - %%MID%% ]",
-    "cycleguard": "cycleguard",
-    "timeguard": "timeguard",
-    "chatfilter": "chatfilter",
-    "lockdown": "lockdown",
-    "lockguard": "lockguard",
-    "usercommands": "usercommands",
-    "motd": "MotD",
-    "welcomemsg": "welcome message",
-    "songstats": "song statistics",
-    "etarestriction": "eta restriction",
-    "activeusersintime": "/me [@%%NAME%% Houve %%AMOUNT%% usuários que conversam durante %%TIME%% minutos.",
-    "maximumafktimeset": "/me [@%%NAME%%] Tempo maximo pra AFK agora é %%TIME%% minutos.",
-    "afkstatusreset": "/me [@%%NAME%%] Resetando afk status de @%%USERNAME%%.",
-    "inactivefor": "/me [@%%NAME%%] @%%USERNAME%% ficou inativo por %%TIME%%.",
-    "autowoot": "/me Recomendamos PlugCubed para autowooting: http://plugcubed.net/",
-    "brandambassador": "/me Um embaixador da marca é a voz dos usuários plug.dj. Eles promovem eventos, envolver a comunidade e compartilhar a mensagem plug.dj ao redor do mundo. Para mais informação: http://blog.plug.dj/brand-ambassadors/",
-    "bouncerplusrank": "/me [@%%NAME%%] You have to be manager or up to enable Bouncer+.",
-    "chatcleared": "/me [@%%NAME%%] Passou o rodo no chat.",
-    "deletechat": "/me [@%%NAME%%] Passou o rodo no chat do %%USERNAME%%.",
-    "commandslink": "/me %%BOTNAME%% Comandos: %%LINK%%",
-    "eatcookie": "/me come um cookie.",
-    "nousercookie": "/em Não vejo %%NAME%% na sala e como um cookie si mesmo.",
-    "selfcookie": "/me @%%NAME%%, você está um pouco ganancioso, não é? Dando cookies para si mesmo, bah. Compartilhe alguns com outras pessoas! ",
-    "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
-    "cycleguardtime": "/me [@%%NAME%%] O cycleguard é definido como %%TIME%% minuto(s).",
-    "dclookuprank": "/me [@%%NAME%%] Apenas os pikas podem fazer uma pesquisa para os outros.",
-    "emojilist": "/me Emoji list: %%LINK%%",
-    "notinwaitlist": "/me @%%NAME%%, você não está na lista de espera.",
-    "eta": "/me @%%NAME%% você vai chegar à cabine em aproximadamente %%TIME%%.",
-    "facebook": "/me Vem pra ilha poar: https://www.facebook.com/groups/ilhadamacacadaociclo/?fref=nf",
-    "starterhelp": "/me Esta imagem irá ajudar a começar no plug: %%LINK%%",
-    "roulettejoin": "/me @%%NAME%% veio pra Roleta! (!leave se quer sair.)",
-    "jointime": "/me [@%%NAMEFROM%%] @%%USERNAME%% entrou na sala em %%TIME%%.",
-    "kickrank": "/me [@%%NAME%%] Só pode kikar se for GENERAL, vai ficar pistola?",
-    "kick": "/me [@%%NAME%%], @%%USERNAME%% Foi kickado por %%TIME%% minutos.",
-    "kill": "/me Morri.",
-    "rouletteleave": "/me @%%NAME%% Saiu da roleta!",
-    "songlink": "/me [@%%NAME%%] Link da musica atual: %%LINK%%",
-    "usedlockskip": "/me [%%NAME%% usou lockskip.]",
-    "lockskippos": "/me [@%%NAME%%] Lockskip agora moveu o dj para a %%POSITION%%.",
-    "lockguardtime": "/me [@%%NAME%%] The lockguard is set to %%TIME%% minute(s).",
-    "maxlengthtime": "/me [@%%NAME%%] A duração maxima da musica é: %%TIME%% minutos.",
-    "motdset": "/me MotD agora é:  %%MSG%%",
-    "motdintervalset": "/me MotD intervalo agora é %%INTERVAL%%.",
-    "addbotwaitlist": "/me @%%NAME%%, não me adicione, adiciona sua mae na lista de espera, por favor.",
-    "move": "/me [%%NAME%% used move.]",
-    "mutednotime": "/me [@%%NAME%%] Silence @%%USERNAME%%.",
-    "mutedmaxtime": "/me [@%%NAME%%] Você só pode silenciar para o máximo %%TIME%% minutos.",
-    "mutedtime": "/me [@%%NAME%%] Silence @%%USERNAME%% durante %%TIME%% minutos.",
-    "unmuted": "/me [@%%NAME%%] Desmutado @%%USERNAME%%.",
-    "muterank": "/me [@%%NAME%%] Só pode mutar se for GENERAL, vai ficar pistola?.",
-    "oplist": "/me OP list: %%LINK%%",
-    "pong": "/me Pong!",
-    "reload": "/me Volto logo.",
-    "removenotinwl": "/me [@%%NAME%%] O usuário especificado @%%USERNAME%% não esta na lista de espera.",
-    "roomrules": "/me SAPOAR TEM REGRAS, ENTAO RX: %%LINK%%",
-    "sessionstats": "/me [@%%NAME%%] Total likes: %%WOOTS%%, total negativos: %%MEHS%%, total add: %%GRABS%%.",
-    "skip": "/me [%%NAME%% usou o pula pula, filha da pula.]",
-    "madeby": "/me Esse bot foi criado pelo %%NAME%%.",
-    "activefor": "eu fui ativo para %%TIME%%.",
-    "swapinvalid": "/me [@%%NAME%%] Macaco inválido especificado. (Não tem nomes com espaço!)",
-    "swapwlonly": "/me [@%%NAME%%] Por favor, só usuários de swap que estão na lista de espera!",
-    "swapping": "/me trocando %%NAME1%% para %%NAME2%%.",
-    "genres": "/me Por favor, encontrar os gêneros da sala admissíveis aqui: %%LINK%%",
-    "notbanned": "/me [@%%NAME%%] O macaco não foi banido.",
-    "unmutedeveryone": "/me [@%%NAME%%] Pode falar cambada, desmutados.",
-    "unmuteeveryonerank": "/me [@%%NAME%%] Só os GENERAIS podem desmutar geral.",
-    "notmuted": "/me [@%%NAME%%] o macaco não foi silenciado.",
-    "unmuterank": "/me [@%%NAME%%] Não pode desmutar pessoas de mesma patente q tu ou inferior",
-    "commandscd": "/me [@%%NAME%%] O tempo de recarga para os comandos dos usuários já está definido para %%TIME%% segundos.",
-    "voteratio": "/me [@%%NAME%%] @%%USERNAME%% ~ likes: ' + %%WOOT%% + ', negativos: %%MEHS%%, ratio (l/n): %%RATIO%%.",
-    "website": "/me Please visit our website: %%LINK%%",
-    "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
-    "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M."
-}
+Copyright © 2014 Yemasthui
