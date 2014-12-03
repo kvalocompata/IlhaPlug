@@ -1,4 +1,4 @@
-<h1>basicBot-customization</h1>
+<h1>IlhaPlug-customizações</h1>
 <p>Clique <a href="https://github.com/kvalocompata/IlhaPlug">aqui</a> para ir para o repositório do IlhaPlug.</p>
 
 Using custom room settings or adding functionality is done by loading your own script loading and modifying the bot. This repository's purpose is to facilitate this. You can fork the repository and customise the example script. When you have forked the repo, bookmark the following script, but change Yemasthui to your own github handle.
